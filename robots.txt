@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hairosvitrine.vercel.app/sitemap.xml

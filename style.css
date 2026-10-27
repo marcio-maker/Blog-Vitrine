@@ -1,5 +1,5 @@
 /* ============================================================
-   HairOS — style.css (Identidade Restaurada)
+   HairOS — style.css
    ============================================================ */
 
 :root{
@@ -22,7 +22,7 @@ a{color:inherit}
 :focus-visible{outline:none;box-shadow:var(--focus-ring)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ---------- HEADER ---------- */
+/* HEADER */
 .site-header{position:sticky;top:0;z-index:900;background:rgba(10,8,8,.82);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom:1px solid var(--border)}
 .header-inner{max-width:1200px;margin:0 auto;padding:0 16px;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:baseline;gap:2px;text-decoration:none;line-height:1;background:none;border:none;cursor:pointer;padding:0}
@@ -35,10 +35,7 @@ a{color:inherit}
 .nav-desktop{display:none}
 .nav-desktop a{text-decoration:none;color:var(--text-sec);font-size:.9rem;font-weight:500;padding:8px 4px;transition:var(--tr-ui)}
 .nav-desktop a:hover{color:var(--gold)}
-@media(min-width:768px){
-  .nav-desktop{display:flex;gap:24px;align-items:center}
-  .menu-toggle{display:none}
-}
+@media(min-width:768px){.nav-desktop{display:flex;gap:24px;align-items:center}.menu-toggle{display:none}}
 
 /* BUSCADOR */
 .header-search{padding:0 16px 12px;max-width:1200px;margin:0 auto;width:100%}
@@ -58,7 +55,7 @@ a{color:inherit}
 .drawer-nav a{display:block;padding:16px 24px;color:var(--text);font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;text-decoration:none;border-bottom:1px solid var(--border);transition:var(--tr-ui)}
 .drawer-nav a:hover{background:rgba(217,187,144,.05);color:var(--gold);padding-left:30px}
 
-/* ---------- CONTAINER / TIPOGRAFIA ---------- */
+/* CONTAINER / TIPOGRAFIA */
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 .page-title{text-align:center;padding:32px 16px 8px}
 .page-title h1{font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;font-weight:600;line-height:1.2}
@@ -70,7 +67,7 @@ a{color:inherit}
 .bloco-head h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:1.2rem;white-space:nowrap}
 .bloco-head .linha{flex:1;height:1px;background:var(--border-gold)}
 
-/* ---------- GRID DE CARDS ---------- */
+/* GRID DE CARDS */
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(min-width:601px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(min-width:1025px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}}
@@ -83,10 +80,8 @@ a{color:inherit}
 .card-nome{display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;box-orient:vertical;overflow:hidden;font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;font-weight:600;color:var(--gold-light);line-height:1.2}
 .card-sub{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;box-orient:vertical;overflow:hidden;font-size:.72rem;color:var(--text-muted);font-weight:300;line-height:1.3;margin-top:2px}
 
-/* ---------- ESPAÇOS DE ANÚNCIO (escondidos até aprovação) ---------- */
+/* ARTIGO */
 .ad-slot{display:none !important}
-
-/* ---------- ARTIGO ---------- */
 .article-hero{text-align:center;padding:32px 16px 0}
 .article-hero h1{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;font-weight:600;line-height:1.2;max-width:720px;margin:0 auto}
 .article-hero .sub{display:block;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);margin-top:12px}
@@ -113,18 +108,16 @@ a{color:inherit}
 .aviso-afiliado-inline{margin:16px 0;padding:12px;font-size:.8rem;color:var(--text-muted);background:rgba(217,187,144,.05);border-left:3px solid var(--border-gold);border-radius:0 8px 8px 0;font-weight:300}
 .aviso-afiliado-inline .gold{color:var(--gold);font-weight:400}
 
-/* Bloco de produtos sugeridos (IDENTIDADE MANTIDA) */
+/* Bloco de produtos sugeridos (CORRIGIDO) */
 .produtos-sugeridos{max-width:720px;margin:32px auto;padding:24px;background:var(--bg-card);border:1px solid var(--border-gold);border-radius:var(--radius)}
 .produtos-sugeridos h3{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--gold);margin-bottom:14px}
-.produto-item{display:flex !important;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:var(--tr-ui)}
+.produto-item{display:flex !important;align-items:center !important;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:var(--tr-ui)}
 .produto-item:last-child{border-bottom:none}
 .produto-item:hover{color:var(--gold)}
 .produto-item img{width:64px !important;height:64px !important;object-fit:contain;border-radius:8px;background:var(--bg-elevated);flex-shrink:0}
-.produto-item .prod-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
-/* Mantém a fonte original bonita do site (Playfair em itálico) */
-.produto-item .prod-nome{display:block;font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:1.1rem;font-weight:600;color:var(--gold-light)}
-.produto-item .prod-sub{display:block;font-family:'Inter',sans-serif;font-size:.78rem;color:var(--text-muted);font-weight:300}
-/* O VER volta a ser texto limpo */
+.produto-item .prod-info{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.produto-item .prod-nome{font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:1.15rem;font-weight:600;color:var(--gold-light);line-height:1.2;display:block}
+.produto-item .prod-sub{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--text-muted);font-weight:300;margin-top:4px;display:block}
 .produto-item .prod-cta{font-family:'Inter',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:600;white-space:nowrap}
 .aviso-afiliado{max-width:720px;margin:16px auto 0;padding:14px 18px;background:transparent;border:1px solid var(--border-gold);border-radius:var(--radius);font-size:.78rem;color:var(--text-muted);font-weight:300;text-align:center;line-height:1.6}
 .aviso-afiliado .gold{color:var(--gold);font-weight:400}
@@ -136,7 +129,7 @@ a{color:inherit}
 /* Outros cortes */
 .article-related{margin-top:48px}
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 .site-footer{border-top:1px solid var(--border);margin-top:48px;padding:32px 16px;text-align:center}
 .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:16px}
 .footer-links a{font-size:.78rem;color:var(--text-muted);text-decoration:none;transition:var(--tr-ui)}
@@ -144,7 +137,7 @@ a{color:inherit}
 .footer-note{font-size:.7rem;color:var(--text-muted);font-weight:300;line-height:1.7;max-width:640px;margin:0 auto}
 .footer-note .gold{color:var(--gold)}
 
-/* ---------- LEGAL / SOBRE / CONTATO ---------- */
+/* LEGAL / SOBRE / CONTATO */
 .legal{max-width:720px;margin:0 auto;padding:0 16px}
 .legal h2{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--gold-light);margin:32px 0 12px}
 .legal p,.legal li{font-size:.88rem;color:var(--text-sec);line-height:1.8;font-weight:300;margin-bottom:12px}
@@ -156,7 +149,7 @@ textarea.campo{min-height:120px;resize:vertical}
 .btn-enviar{background:var(--gold-grad);border:none;border-radius:10px;padding:14px;color:#1b1209;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;font-family:inherit}
 .contato-status{font-size:.8rem;color:var(--gold-light);min-height:1.2em;margin:0;text-align:center}
 
-/* ---------- UTILITÁRIOS ---------- */
+/* UTILITÁRIOS */
 .img-erro{background:var(--bg-elevated)!important;display:flex!important;align-items:center;justify-content:center;position:relative}
 .img-erro::after{content:attr(data-nome);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;color:var(--gold-lo);font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;text-align:center}
 

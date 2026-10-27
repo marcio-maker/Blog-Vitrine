@@ -1,6 +1,7 @@
 :root {
   --bg: #0a0808;
   --bg-card: #1a1612;
+  --bg-elevated: #221d18;
   --text: #f5f0ea;
   --text-sec: #ddd0c0;
   --text-muted: #a89e93;
@@ -8,43 +9,53 @@
   --gold-light: #edd4ac;
   --border: rgba(217, 187, 144, .10);
   --border-gold: rgba(217, 187, 144, .28);
+  --radius: 14px;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --tr-ui: background-color .3s var(--ease-out), border-color .3s var(--ease-out), color .3s var(--ease-out), box-shadow .3s var(--ease-out), transform .3s var(--ease-out);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.65; }
+* { margin: 0; padding: 0; box-sizing: border-box }
+body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
 
-.site-header { border-bottom: 1px solid var(--border); padding: 16px; }
-.header-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-.brand-h { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold); font-weight: 700; }
+/* HEADER */
+.header-unificado { position: fixed; top: 12px; left: 0; right: 0; margin: 0 auto; width: min(calc(100% - 28px), 560px); background: rgba(26, 22, 18, .66); backdrop-filter: blur(22px); border: 1px solid var(--border-gold); border-radius: 28px; z-index: 900; box-shadow: 0 12px 32px rgba(0, 0, 0, .45); }
+.header-top { height: 56px; padding: 0 16px 0 22px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: baseline; gap: 2px; }
+.brand-h { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--gold); }
 .brand-rest { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--text-sec); }
-.nav-desktop { display: flex; gap: 24px; }
-.nav-desktop a { color: var(--text-sec); font-size: .9rem; }
+.menu-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-gold); color: var(--gold-light); display: flex; align-items: center; justify-content: center; cursor: pointer; background: transparent; }
+.menu-btn .bar { display: block; width: 18px; height: 1.5px; background: currentColor; border-radius: 2px; }
+.menu-btn .bar+.bar { margin-top: 4px }
 
-.article-hero { text-align: center; padding: 32px 16px; }
-.article-hero h1 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; }
-.article-body { max-width: 720px; margin: 0 auto; padding: 0 16px; }
-.article-body p { font-size: .95rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 18px; }
-.article-body h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.35rem; color: var(--gold-light); margin: 32px 0 12px; }
+/* CONTEÚDO */
+.main-content { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+.page-title { text-align: center; margin-bottom: 32px; }
+.page-title h1 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; }
+.page-title .divider { display: block; width: 20px; height: 1px; margin: 18px auto 14px; background: var(--border-gold); }
+.page-title .sub { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-muted); font-weight: 300; }
+.page-title .sub .highlight { color: var(--gold); }
+.bloco { margin-bottom: 48px; }
+h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.35rem; color: var(--gold-light); margin: 32px 0 12px; }
 
-/* AQUI ESTÁ O SEGREDO DO CARD PERFEITO */
-.produtos-sugeridos { max-width: 720px; margin: 32px auto; padding: 24px; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 14px; }
+/* PRODUTOS SUGERIDOS (AQUI ESTÁ A CORREÇÃO DO CARD) */
+.produtos-sugeridos { padding: 24px; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: var(--radius); }
 .produtos-sugeridos h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: var(--gold); margin-bottom: 14px; }
 
-.produto-item { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 20px 0 !important; border-bottom: 1px solid var(--border) !important; gap: 16px !important; width: 100% !important; }
-.produto-item:last-child { border-bottom: none !important; }
+.produto-item { display: flex; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); gap: 16px; width: 100%; }
+.produto-item:last-child { border-bottom: none; }
 
-/* Trava a imagem no tamanho certo */
-.produto-item img { width: 64px !important; height: 64px !important; object-fit: contain !important; flex-shrink: 0 !important; border-radius: 8px; background: #221d18; }
+.produto-item img { width: 64px; height: 64px; object-fit: contain; flex-shrink: 0; border-radius: 8px; background: var(--bg-elevated); }
 
-/* O texto fica no meio e não empurra o botão */
-.produto-item .prod-info { display: flex !important; flex-direction: column !important; flex: 1 !important; min-width: 0 !important; }
-.produto-item .prod-nome { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: 1.2rem !important; font-weight: 600 !important; color: var(--gold-light) !important; line-height: 1.2 !important; }
-.produto-item .prod-sub { font-family: 'Inter', sans-serif !important; font-size: 0.85rem !important; color: var(--text-muted) !important; margin-top: 4px !important; }
+.produto-item .prod-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.produto-item .prod-nome { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; font-weight: 600; color: var(--gold-light); line-height: 1.2; }
+.produto-item .prod-sub { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
-/* Trava o botão VER para nunca ser cortado */
-.produto-item .prod-cta { font-family: 'Inter', sans-serif !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: var(--gold) !important; font-weight: 700 !important; white-space: nowrap !important; flex-shrink: 0 !important; }
+.produto-item .prod-cta { font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; white-space: nowrap; flex-shrink: 0; margin-left: auto; }
 
-.aviso-afiliado { text-align: center; font-size: .78rem; color: var(--text-muted); padding: 14px; border: 1px solid var(--border-gold); border-radius: 14px; margin-top: 16px; }
+.aviso-afiliado { text-align: center; font-size: .78rem; color: var(--text-muted); padding: 14px; border: 1px solid var(--border-gold); border-radius: var(--radius); }
 .aviso-afiliado .gold { color: var(--gold); }
+
+/* ERRO DE IMAGEM */
+.img-erro { background: var(--bg-elevated) !important; display: flex !important; align-items: center; justify-content: center; }
+.img-erro::after { content: attr(data-nome); color: var(--gold); font-size: 10px; text-align: center; }

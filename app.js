@@ -1,40 +1,58 @@
+/* ============================================================
+   HairOS — app.js (Completo e sem o bug de duplicação)
+   ============================================================ */
+
+/* Lida com o erro de imagem sem quebrar o layout */
 function _imgErro(el) {
   try {
     if (!el.getAttribute('src')) return;
     const wrap = el.parentElement;
     if (!wrap) return;
+    const nome = el.getAttribute('alt') || 'Imagem';
     wrap.classList.add('img-erro');
-    wrap.setAttribute('data-nome', el.getAttribute('alt') || 'Erro');
+    wrap.setAttribute('data-nome', nome);
     el.style.opacity = '0';
   } catch (e) {}
 }
 window._imgErro = _imgErro;
 
+/* MENU MOBILE (Abrir e Fechar) */
 (function() {
-  const toggle = document.querySelector('.menu-toggle');
+  const toggle = document.querySelector('.menu-btn');
   const drawer = document.getElementById('drawer');
   const overlay = document.getElementById('drawerOverlay');
   const fechar = document.getElementById('drawerFechar');
+  
   if (!toggle || !drawer || !overlay || !fechar) return;
 
-  toggle.addEventListener('click', () => {
+  function abrir() {
     drawer.classList.add('aberto');
     overlay.classList.add('ativo');
     drawer.removeAttribute('inert');
     toggle.setAttribute('aria-expanded', 'true');
-  });
+  }
 
-  const fecharMenu = () => {
+  function fecharDrawer() {
     drawer.classList.remove('aberto');
     overlay.classList.remove('ativo');
     drawer.setAttribute('inert', '');
     toggle.setAttribute('aria-expanded', 'false');
-  };
+  }
 
-  fechar.addEventListener('click', fecharMenu);
-  overlay.addEventListener('click', fecharMenu);
+  toggle.addEventListener('click', abrir);
+  fechar.addEventListener('click', fecharDrawer);
+  overlay.addEventListener('click', fecharDrawer);
+  
+  // Fecha o menu se clicar em um link
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', fecharDrawer));
+  
+  // Fecha com a tecla Esc
+  document.addEventListener('keydown', e => { 
+    if (e.key === 'Escape') fecharDrawer(); 
+  });
 })();
 
+/* BOTÃO PINTEREST */
 (function() {
   document.querySelectorAll('.pin-btn').forEach(btn => {
     btn.addEventListener('click', e => {
@@ -42,11 +60,13 @@ window._imgErro = _imgErro;
       const url = encodeURIComponent(btn.dataset.pinUrl || location.href);
       const media = encodeURIComponent(btn.dataset.pinMedia || '');
       const desc = encodeURIComponent(btn.dataset.pinDescription || document.title);
-      window.open('https://www.pinterest.com/pin/create/button/?url=' + url + '&media=' + media + '&description=' + desc, '_blank');
+      const pinUrl = `https://www.pinterest.com/pin/create/button/?url=${url}&media=${media}&description=${desc}`;
+      window.open(pinUrl, '_blank', 'noopener,width=750,height=550');
     });
   });
 })();
 
+/* ANO NO FOOTER */
 (function() {
   const y = document.getElementById('anoAtual');
   if (y) y.textContent = new Date().getFullYear();

@@ -1,6 +1,5 @@
-l/* ============================================================
-   HairOS — style.css
-   DNA: dark + dourado, Playfair + Inter, mobile first
+/* ============================================================
+   HairOS — style.css (Identidade Restaurada)
    ============================================================ */
 
 :root{
@@ -114,17 +113,19 @@ a{color:inherit}
 .aviso-afiliado-inline{margin:16px 0;padding:12px;font-size:.8rem;color:var(--text-muted);background:rgba(217,187,144,.05);border-left:3px solid var(--border-gold);border-radius:0 8px 8px 0;font-weight:300}
 .aviso-afiliado-inline .gold{color:var(--gold);font-weight:400}
 
-/* Bloco de produtos sugeridos (CORRIGIDO) */
+/* Bloco de produtos sugeridos (IDENTIDADE MANTIDA) */
 .produtos-sugeridos{max-width:720px;margin:32px auto;padding:24px;background:var(--bg-card);border:1px solid var(--border-gold);border-radius:var(--radius)}
 .produtos-sugeridos h3{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--gold);margin-bottom:14px}
 .produto-item{display:flex !important;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:var(--tr-ui)}
 .produto-item:last-child{border-bottom:none}
 .produto-item:hover{color:var(--gold)}
 .produto-item img{width:64px !important;height:64px !important;object-fit:contain;border-radius:8px;background:var(--bg-elevated);flex-shrink:0}
-.produto-item .prod-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.produto-item .prod-nome{display:block;font-family:'Inter',sans-serif !important;font-style:normal !important;font-size:.95rem;font-weight:600;color:var(--text)}
-.produto-item .prod-sub{display:block;font-size:.78rem;color:var(--text-muted);font-weight:300}
-.produto-item .prod-cta{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700;white-space:nowrap;padding:4px 8px;border:1px solid var(--border-gold);border-radius:6px}
+.produto-item .prod-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+/* Mantém a fonte original bonita do site (Playfair em itálico) */
+.produto-item .prod-nome{display:block;font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:1.1rem;font-weight:600;color:var(--gold-light)}
+.produto-item .prod-sub{display:block;font-family:'Inter',sans-serif;font-size:.78rem;color:var(--text-muted);font-weight:300}
+/* O VER volta a ser texto limpo */
+.produto-item .prod-cta{font-family:'Inter',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:600;white-space:nowrap}
 .aviso-afiliado{max-width:720px;margin:16px auto 0;padding:14px 18px;background:transparent;border:1px solid var(--border-gold);border-radius:var(--radius);font-size:.78rem;color:var(--text-muted);font-weight:300;text-align:center;line-height:1.6}
 .aviso-afiliado .gold{color:var(--gold);font-weight:400}
 

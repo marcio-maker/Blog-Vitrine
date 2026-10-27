@@ -3,88 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0808">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="dark">
   <title>Bob Curto: Combina com Você? — HairOS</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0808'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='72' fill='%23d9bb90' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <style>
-    :root{
-      --bg:#0a0808; --bg-card:#1a1612; --text:#f5f0ea; --text-sec:#ddd0c0; 
-      --text-muted:#a89e93; --gold:#d9bb90; --gold-light:#edd4ac; 
-      --border:rgba(217,187,144,.10); --border-gold:rgba(217,187,144,.28);
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--text);line-height:1.65}
-    a{color:inherit;text-decoration:none}
-    
-    /* HEADER */
-    .site-header{border-bottom:1px solid var(--border);padding:16px}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-    .brand-h{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gold);font-weight:700}
-    .brand-rest{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-sec)}
-    .nav-desktop{display:flex;gap:24px}
-    .nav-desktop a{color:var(--text-sec);font-size:.9rem}
-
-    /* ARTIGO */
-    .article-hero{text-align:center;padding:32px 16px}
-    .article-hero h1{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem}
-    .article-body{max-width:720px;margin:0 auto;padding:0 16px}
-    .article-body p{font-size:.95rem;color:var(--text-sec);line-height:1.8;margin-bottom:18px}
-    .article-body h2{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;color:var(--gold-light);margin:32px 0 12px}
-
-    /* CARDS DE PRODUTO - AQUI ESTÁ O CONSERTO */
-    .produtos-sugeridos{max-width:720px;margin:32px auto;padding:24px;background:var(--bg-card);border:1px solid var(--border-gold);border-radius:14px}
-    .produtos-sugeridos h3{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--gold);margin-bottom:14px}
-    
-    .produto-item{display:flex;align-items:center;padding:20px 0;border-bottom:1px solid var(--border);gap:16px;width:100%}
-    .produto-item:last-child{border-bottom:none}
-    
-    .produto-item img{width:64px;height:64px;object-fit:contain;flex-shrink:0;border-radius:8px;background:#221d18}
-    
-    .produto-item .prod-info{display:flex;flex-direction:column;flex:1;min-width:0}
-    .produto-item .prod-nome{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;font-weight:600;color:var(--gold-light);line-height:1.2}
-    .produto-item .prod-sub{font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--text-muted);margin-top:4px}
-    
-    .produto-item .prod-cta{font-family:'Inter',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:700;white-space:nowrap;flex-shrink:0;margin-left:auto}
-    
-    .aviso-afiliado{text-align:center;font-size:.78rem;color:var(--text-muted);padding:14px;border:1px solid var(--border-gold);border-radius:14px;margin-top:16px}
-    .aviso-afiliado .gold{color:var(--gold)}
-  </style>
+  <!-- O CSS ESTÁ SEPARADO AQUI -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
+  <header class="header-unificado">
+    <div class="header-top">
       <a href="index.html" class="brand">
         <span class="brand-h">H</span><span class="brand-rest">airOS</span>
       </a>
-      <nav class="nav-desktop">
-        <a href="index.html">Artigos</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
-      </nav>
+      <button class="menu-btn" id="menuBtn">
+        <span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+      </button>
     </div>
   </header>
 
-  <main>
-    <section class="article-hero">
-      <h1>Bob Curto: Combina com Você?</h1>
-    </section>
+  <main class="main-content" style="padding-top: 100px;">
+    
+    <div class="page-title">
+      <h1>Bob Curto</h1><span class="divider"></span>
+      <div class="sub">Combina com você?<br><span class="highlight">Como cuidar e manter</span></div>
+    </div>
 
-    <article class="article-body">
-      <p>O <strong>bob curto</strong> é democrático, mas exige manutenção. Neste guia, veja como manter o corte em casa.</p>
+    <div class="bloco">
+      <p style="color: var(--text-sec); margin-bottom: 20px;">
+        O bob curto é democrático, mas exige manutenção. Neste guia, veja como manter o corte em casa.
+      </p>
       
       <h2>Como cuidar em casa</h2>
-      <p>Use finalizador leve. Para manter o brilho, um kit de reconstrução como o <a href="https://meli.la/1MwSY7v" target="_blank" rel="nofollow sponsored" style="color:var(--gold); text-decoration:underline;">Kit Kérastase</a> é uma boa escolha.</p>
-    </article>
+      <p style="color: var(--text-sec); margin-bottom: 20px;">
+        Use finalizador leve. Para manter o brilho, um kit de reconstrução como o <a href="https://meli.la/1MwSY7v" target="_blank" rel="nofollow sponsored" style="color:var(--gold); text-decoration:underline;">Kit Kérastase</a> é uma boa escolha.
+      </p>
+    </div>
 
-    <!-- BLOCO DE PRODUTOS - SEM DUPLICAÇÃO, COM IMAGEM -->
+    <!-- SEÇÃO DE PRODUTOS (SEM DUPLICAÇÃO) -->
     <section class="produtos-sugeridos">
       <h3>Produtos que indicamos</h3>
       
       <a class="produto-item" href="https://meli.la/1MwSY7v" target="_blank" rel="nofollow sponsored">
-        <img src="img/produto-kerastase.webp" alt="Kit Kérastase">
+        <img src="img/produto-kerastase.webp" alt="Kit Kérastase" onerror="_imgErro(this)">
         <span class="prod-info">
           <span class="prod-nome">Kit Kérastase</span>
           <span class="prod-sub">Finalização e brilho</span>
@@ -93,7 +60,7 @@
       </a>
       
       <a class="produto-item" href="https://meli.la/2x9xqBe" target="_blank" rel="nofollow sponsored">
-        <img src="img/produto-joico.webp" alt="Kit Joico">
+        <img src="img/produto-joico.webp" alt="Kit Joico" onerror="_imgErro(this)">
         <span class="prod-info">
           <span class="prod-nome">Kit Joico</span>
           <span class="prod-sub">Hidratação intensa</span>
@@ -102,23 +69,22 @@
       </a>
       
       <a class="produto-item" href="https://meli.la/1GbiW7M" target="_blank" rel="nofollow sponsored">
-        <img src="img/produto-keune.webp" alt="Kit Keune">
+        <img src="img/produto-keune.webp" alt="Kit Keune" onerror="_imgErro(this)">
         <span class="prod-info">
           <span class="prod-nome">Kit Keune</span>
           <span class="prod-sub">Modelagem e cuidado</span>
         </span>
         <span class="prod-cta">Ver</span>
       </a>
-      
-      <p class="aviso-afiliado">
+
+      <p class="aviso-afiliado" style="margin-top: 16px;">
         <span class="gold">Links de afiliado:</span> você paga o mesmo e o site pode receber comissão.
       </p>
     </section>
+
   </main>
 
-  <footer style="text-align:center; padding: 32px; font-size: 0.8rem; color: var(--text-muted);">
-    © 2026 HairOS
-  </footer>
-
+  <!-- O JS ESTÁ SEPARADO AQUI -->
+  <script src="app.js" defer></script>
 </body>
 </html>
